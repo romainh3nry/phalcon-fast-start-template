@@ -1,0 +1,141 @@
+2022-04-04 11:39:24.405 UTC [19] LOG:  database system was shut down at 2022-04-04 11:36:48 UTC
+2022-04-04 11:39:24.426 UTC [1] LOG:  database system is ready to accept connections
+2022-04-04 11:40:01.355 UTC [26] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:40:01.358 UTC [26] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:40:01.362 UTC [26] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - Main <phalcon>'
+2022-04-04 11:40:01.396 UTC [26] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:40:01.490 UTC [26] LOG:  execute <unnamed>: SELECT n.oid,n.*,d.description FROM pg_catalog.pg_namespace n
+	LEFT OUTER JOIN pg_catalog.pg_description d ON d.objoid=n.oid AND d.objsubid=0 AND d.classoid='pg_namespace'::regclass
+	 ORDER BY nspname
+2022-04-04 11:40:01.506 UTC [26] LOG:  execute <unnamed>: SELECT n.nspname = ANY(current_schemas(true)), n.nspname, t.typname FROM pg_catalog.pg_type t JOIN pg_catalog.pg_namespace n ON t.typnamespace = n.oid WHERE t.oid = $1
+2022-04-04 11:40:01.506 UTC [26] DETAIL:  parameters: $1 = '1034'
+2022-04-04 11:40:01.519 UTC [26] LOG:  execute <unnamed>: SELECT typinput='array_in'::regproc as is_array, typtype, typname   FROM pg_catalog.pg_type   LEFT JOIN (select ns.oid as nspoid, ns.nspname, r.r           from pg_namespace as ns           join ( select s.r, (current_schemas(false))[s.r] as nspname                    from generate_series(1, array_upper(current_schemas(false), 1)) as s(r) ) as r          using ( nspname )        ) as sp     ON sp.nspoid = typnamespace  WHERE typname = $1  ORDER BY sp.r, pg_type.oid DESC
+2022-04-04 11:40:01.519 UTC [26] DETAIL:  parameters: $1 = '_aclitem'
+2022-04-04 11:40:01.522 UTC [26] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:40:01.603 UTC [27] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:40:01.605 UTC [27] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:40:01.608 UTC [27] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - Metadata <phalcon>'
+2022-04-04 11:40:01.611 UTC [27] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:40:01.614 UTC [27] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:40:01.623 UTC [27] LOG:  execute <unnamed>: SELECT db.oid,db.* FROM pg_catalog.pg_database db WHERE datname=$1
+2022-04-04 11:40:01.623 UTC [27] DETAIL:  parameters: $1 = 'phalcon'
+2022-04-04 11:40:01.639 UTC [27] LOG:  execute <unnamed>: select * from pg_catalog.pg_settings where name=$1
+2022-04-04 11:40:01.639 UTC [27] DETAIL:  parameters: $1 = 'standard_conforming_strings'
+2022-04-04 11:40:01.662 UTC [27] LOG:  execute <unnamed>: select string_agg(word, ',') from pg_catalog.pg_get_keywords() where word <> ALL ('{a,abs,absolute,action,ada,add,admin,after,all,allocate,alter,always,and,any,are,array,as,asc,asensitive,assertion,assignment,asymmetric,at,atomic,attribute,attributes,authorization,avg,before,begin,bernoulli,between,bigint,binary,blob,boolean,both,breadth,by,c,call,called,cardinality,cascade,cascaded,case,cast,catalog,catalog_name,ceil,ceiling,chain,char,char_length,character,character_length,character_set_catalog,character_set_name,character_set_schema,characteristics,characters,check,checked,class_origin,clob,close,coalesce,cobol,code_units,collate,collation,collation_catalog,collation_name,collation_schema,collect,column,column_name,command_function,command_function_code,commit,committed,condition,condition_number,connect,connection_name,constraint,constraint_catalog,constraint_name,constraint_schema,constraints,constructors,contains,continue,convert,corr,corresponding,count,covar_pop,covar_samp,create,cross,cube,cume_dist,current,current_collation,current_date,current_default_transform_group,current_path,current_role,current_time,current_timestamp,current_transform_group_for_type,current_user,cursor,cursor_name,cycle,data,date,datetime_interval_code,datetime_interval_precision,day,deallocate,dec,decimal,declare,default,defaults,deferrable,deferred,defined,definer,degree,delete,dense_rank,depth,deref,derived,desc,describe,descriptor,deterministic,diagnostics,disconnect,dispatch,distinct,domain,double,drop,dynamic,dynamic_function,dynamic_function_code,each,element,else,end,end-exec,equals,escape,every,except,exception,exclude,excluding,exec,execute,exists,exp,external,extract,false,fetch,filter,final,first,float,floor,following,for,foreign,fortran,found,free,from,full,function,fusion,g,general,get,global,go,goto,grant,granted,group,grouping,having,hierarchy,hold,hour,identity,immediate,implementation,in,including,increment,indicator,initially,inner,inout,input,insensitive,insert,instance,instantiable,int,integer,intersect,intersection,interval,into,invoker,is,isolation,join,k,key,key_member,key_type,language,large,last,lateral,leading,left,length,level,like,ln,local,localtime,localtimestamp,locator,lower,m,map,match,matched,max,maxvalue,member,merge,message_length,message_octet_length,message_text,method,min,minute,minvalue,mod,modifies,module,month,more,multiset,mumps,name,names,national,natural,nchar,nclob,nesting,new,next,no,none,normalize,normalized,not,"null",nullable,nullif,nulls,number,numeric,object,octet_length,octets,of,old,on,only,open,option,options,or,order,ordering,ordinality,others,out,outer,output,over,overlaps,overlay,overriding,pad,parameter,parameter_mode,parameter_name,parameter_ordinal_position,parameter_specific_catalog,parameter_specific_name,parameter_specific_schema,partial,partition,pascal,path,percent_rank,percentile_cont,percentile_disc,placing,pli,position,power,preceding,precision,prepare,preserve,primary,prior,privileges,procedure,public,range,rank,read,reads,real,recursive,ref,references,referencing,regr_avgx,regr_avgy,regr_count,regr_intercept,regr_r2,regr_slope,regr_sxx,regr_sxy,regr_syy,relative,release,repeatable,restart,result,return,returned_cardinality,returned_length,returned_octet_length,returned_sqlstate,returns,revoke,right,role,rollback,rollup,routine,routine_catalog,routine_name,routine_schema,row,row_count,row_number,rows,savepoint,scale,schema,schema_name,scope_catalog,scope_name,scope_schema,scroll,search,second,section,security,select,self,sensitive,sequence,serializable,server_name,session,session_user,set,sets,similar,simple,size,smallint,some,source,space,specific,specific_name,specifictype,sql,sqlexception,sqlstate,sqlwarning,sqrt,start,state,statement,static,stddev_pop,stddev_samp,structure,style,subclass_origin,submultiset,substring,sum,symmetric,system,system_user,table,table_name,tablesample,temporary,then,ties,time,timestamp,timezone_hour,timezone_minute,to,top_level_count,trailing,transaction,transaction_active,transactions_committed,transactions_rolled_back,transform,transforms,translate,translation,treat,trigger,trigger_catalog,trigger_name,trigger_schema,trim,true,type,uescape,unbounded,uncommitted,under,union,unique,unknown,unnamed,unnest,update,upper,usage,user,user_defined_type_catalog,user_defined_type_code,user_defined_type_name,user_defined_type_schema,using,value,values,var_pop,var_samp,varchar,varying,view,when,whenever,where,width_bucket,window,with,within,without,work,write,year,zone}'::text[])
+2022-04-04 11:40:01.671 UTC [27] LOG:  execute <unnamed>: SELECT version()
+2022-04-04 11:40:01.696 UTC [27] LOG:  execute <unnamed>: SELECT t.oid,t.*,c.relkind,format_type(nullif(t.typbasetype, 0), t.typtypmod) as base_type_name, d.description
+	FROM pg_catalog.pg_type t
+	LEFT OUTER JOIN pg_catalog.pg_type et ON et.oid=t.typelem 
+	LEFT OUTER JOIN pg_catalog.pg_class c ON c.oid=t.typrelid
+	LEFT OUTER JOIN pg_catalog.pg_description d ON t.oid=d.objoid
+	WHERE t.typname IS NOT NULL
+	AND (c.relkind IS NULL OR c.relkind = 'c') AND (et.typcategory IS NULL OR et.typcategory <> 'C')
+2022-04-04 11:40:08.159 UTC [27] LOG:  execute <unnamed>: SELECT c.oid,c.*,d.description,pg_catalog.pg_get_expr(c.relpartbound, c.oid) as partition_expr,  pg_catalog.pg_get_partkeydef(c.oid) as partition_key 
+	FROM pg_catalog.pg_class c
+	LEFT OUTER JOIN pg_catalog.pg_description d ON d.objoid=c.oid AND d.objsubid=0 AND d.classoid='pg_class'::regclass
+	WHERE c.relnamespace=$1 AND c.relkind not in ('i','I','c')
+2022-04-04 11:40:08.159 UTC [27] DETAIL:  parameters: $1 = '2200'
+2022-04-04 11:40:24.689 UTC [26] LOG:  execute <unnamed>: SHOW TRANSACTION ISOLATION LEVEL
+2022-04-04 11:40:24.708 UTC [28] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:40:24.710 UTC [28] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:40:24.713 UTC [28] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script-2.sql>'
+2022-04-04 11:40:24.716 UTC [28] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:40:24.718 UTC [28] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:40:24.754 UTC [28] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 11:40:38.870 UTC [30] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:40:38.872 UTC [30] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:40:38.877 UTC [30] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script.sql>'
+2022-04-04 11:40:38.881 UTC [30] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:40:38.885 UTC [30] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:40:38.887 UTC [30] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 11:40:44.468 UTC [30] LOG:  execute <unnamed>: create table users (id bigserial not null, firstname varchar null, lastname varchar null, email varchar not null, password varchar not null, constraint users_pk primary key (id), constraint users_un unique (email))
+2022-04-04 11:40:44.793 UTC [30] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:40:44.796 UTC [30] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:40:48.027 UTC [30] LOG:  execute <unnamed>: SHOW TRANSACTION ISOLATION LEVEL
+2022-04-04 11:40:50.562 UTC [27] LOG:  execute <unnamed>: SELECT a.oid,a.* FROM pg_catalog.pg_roles a 
+	ORDER BY a.rolname
+2022-04-04 11:41:04.768 UTC [31] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:41:04.769 UTC [31] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:41:04.773 UTC [31] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - Main <phalcon>'
+2022-04-04 11:41:04.775 UTC [31] LOG:  execute <unnamed>: SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-04-04 11:41:04.778 UTC [31] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:41:04.780 UTC [31] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:41:04.782 UTC [31] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 11:41:04.860 UTC [32] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:41:04.864 UTC [32] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:41:04.866 UTC [32] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - Metadata <phalcon>'
+2022-04-04 11:41:04.870 UTC [32] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:41:04.872 UTC [32] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:41:04.874 UTC [32] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 11:41:04.948 UTC [33] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:41:04.949 UTC [33] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:41:04.952 UTC [33] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script.sql>'
+2022-04-04 11:41:04.953 UTC [33] LOG:  execute <unnamed>: SET SESSION CHARACTERISTICS AS TRANSACTION ISOLATION LEVEL READ COMMITTED
+2022-04-04 11:41:04.955 UTC [33] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:41:04.957 UTC [33] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:41:04.959 UTC [33] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 11:41:13.156 UTC [34] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:41:13.160 UTC [34] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:41:13.166 UTC [34] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - Main <phalcon>'
+2022-04-04 11:41:13.170 UTC [34] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:41:13.185 UTC [34] LOG:  execute <unnamed>: SELECT n.oid,n.*,d.description FROM pg_catalog.pg_namespace n
+	LEFT OUTER JOIN pg_catalog.pg_description d ON d.objoid=n.oid AND d.objsubid=0 AND d.classoid='pg_namespace'::regclass
+	 ORDER BY nspname
+2022-04-04 11:41:13.192 UTC [34] LOG:  execute <unnamed>: SELECT n.nspname = ANY(current_schemas(true)), n.nspname, t.typname FROM pg_catalog.pg_type t JOIN pg_catalog.pg_namespace n ON t.typnamespace = n.oid WHERE t.oid = $1
+2022-04-04 11:41:13.192 UTC [34] DETAIL:  parameters: $1 = '1034'
+2022-04-04 11:41:13.197 UTC [34] LOG:  execute <unnamed>: SELECT typinput='array_in'::regproc as is_array, typtype, typname   FROM pg_catalog.pg_type   LEFT JOIN (select ns.oid as nspoid, ns.nspname, r.r           from pg_namespace as ns           join ( select s.r, (current_schemas(false))[s.r] as nspname                    from generate_series(1, array_upper(current_schemas(false), 1)) as s(r) ) as r          using ( nspname )        ) as sp     ON sp.nspoid = typnamespace  WHERE typname = $1  ORDER BY sp.r, pg_type.oid DESC
+2022-04-04 11:41:13.197 UTC [34] DETAIL:  parameters: $1 = '_aclitem'
+2022-04-04 11:41:13.200 UTC [34] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:41:13.223 UTC [35] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:41:13.226 UTC [35] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:41:13.229 UTC [35] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - Metadata <phalcon>'
+2022-04-04 11:41:13.237 UTC [35] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:41:13.244 UTC [35] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:41:13.253 UTC [35] LOG:  execute <unnamed>: SELECT db.oid,db.* FROM pg_catalog.pg_database db WHERE datname=$1
+2022-04-04 11:41:13.253 UTC [35] DETAIL:  parameters: $1 = 'phalcon'
+2022-04-04 11:41:13.256 UTC [35] LOG:  execute <unnamed>: select * from pg_catalog.pg_settings where name=$1
+2022-04-04 11:41:13.256 UTC [35] DETAIL:  parameters: $1 = 'standard_conforming_strings'
+2022-04-04 11:41:13.263 UTC [35] LOG:  execute <unnamed>: select string_agg(word, ',') from pg_catalog.pg_get_keywords() where word <> ALL ('{a,abs,absolute,action,ada,add,admin,after,all,allocate,alter,always,and,any,are,array,as,asc,asensitive,assertion,assignment,asymmetric,at,atomic,attribute,attributes,authorization,avg,before,begin,bernoulli,between,bigint,binary,blob,boolean,both,breadth,by,c,call,called,cardinality,cascade,cascaded,case,cast,catalog,catalog_name,ceil,ceiling,chain,char,char_length,character,character_length,character_set_catalog,character_set_name,character_set_schema,characteristics,characters,check,checked,class_origin,clob,close,coalesce,cobol,code_units,collate,collation,collation_catalog,collation_name,collation_schema,collect,column,column_name,command_function,command_function_code,commit,committed,condition,condition_number,connect,connection_name,constraint,constraint_catalog,constraint_name,constraint_schema,constraints,constructors,contains,continue,convert,corr,corresponding,count,covar_pop,covar_samp,create,cross,cube,cume_dist,current,current_collation,current_date,current_default_transform_group,current_path,current_role,current_time,current_timestamp,current_transform_group_for_type,current_user,cursor,cursor_name,cycle,data,date,datetime_interval_code,datetime_interval_precision,day,deallocate,dec,decimal,declare,default,defaults,deferrable,deferred,defined,definer,degree,delete,dense_rank,depth,deref,derived,desc,describe,descriptor,deterministic,diagnostics,disconnect,dispatch,distinct,domain,double,drop,dynamic,dynamic_function,dynamic_function_code,each,element,else,end,end-exec,equals,escape,every,except,exception,exclude,excluding,exec,execute,exists,exp,external,extract,false,fetch,filter,final,first,float,floor,following,for,foreign,fortran,found,free,from,full,function,fusion,g,general,get,global,go,goto,grant,granted,group,grouping,having,hierarchy,hold,hour,identity,immediate,implementation,in,including,increment,indicator,initially,inner,inout,input,insensitive,insert,instance,instantiable,int,integer,intersect,intersection,interval,into,invoker,is,isolation,join,k,key,key_member,key_type,language,large,last,lateral,leading,left,length,level,like,ln,local,localtime,localtimestamp,locator,lower,m,map,match,matched,max,maxvalue,member,merge,message_length,message_octet_length,message_text,method,min,minute,minvalue,mod,modifies,module,month,more,multiset,mumps,name,names,national,natural,nchar,nclob,nesting,new,next,no,none,normalize,normalized,not,"null",nullable,nullif,nulls,number,numeric,object,octet_length,octets,of,old,on,only,open,option,options,or,order,ordering,ordinality,others,out,outer,output,over,overlaps,overlay,overriding,pad,parameter,parameter_mode,parameter_name,parameter_ordinal_position,parameter_specific_catalog,parameter_specific_name,parameter_specific_schema,partial,partition,pascal,path,percent_rank,percentile_cont,percentile_disc,placing,pli,position,power,preceding,precision,prepare,preserve,primary,prior,privileges,procedure,public,range,rank,read,reads,real,recursive,ref,references,referencing,regr_avgx,regr_avgy,regr_count,regr_intercept,regr_r2,regr_slope,regr_sxx,regr_sxy,regr_syy,relative,release,repeatable,restart,result,return,returned_cardinality,returned_length,returned_octet_length,returned_sqlstate,returns,revoke,right,role,rollback,rollup,routine,routine_catalog,routine_name,routine_schema,row,row_count,row_number,rows,savepoint,scale,schema,schema_name,scope_catalog,scope_name,scope_schema,scroll,search,second,section,security,select,self,sensitive,sequence,serializable,server_name,session,session_user,set,sets,similar,simple,size,smallint,some,source,space,specific,specific_name,specifictype,sql,sqlexception,sqlstate,sqlwarning,sqrt,start,state,statement,static,stddev_pop,stddev_samp,structure,style,subclass_origin,submultiset,substring,sum,symmetric,system,system_user,table,table_name,tablesample,temporary,then,ties,time,timestamp,timezone_hour,timezone_minute,to,top_level_count,trailing,transaction,transaction_active,transactions_committed,transactions_rolled_back,transform,transforms,translate,translation,treat,trigger,trigger_catalog,trigger_name,trigger_schema,trim,true,type,uescape,unbounded,uncommitted,under,union,unique,unknown,unnamed,unnest,update,upper,usage,user,user_defined_type_catalog,user_defined_type_code,user_defined_type_name,user_defined_type_schema,using,value,values,var_pop,var_samp,varchar,varying,view,when,whenever,where,width_bucket,window,with,within,without,work,write,year,zone}'::text[])
+2022-04-04 11:41:13.278 UTC [35] LOG:  execute <unnamed>: SELECT version()
+2022-04-04 11:41:13.298 UTC [35] LOG:  execute <unnamed>: SELECT t.oid,t.*,c.relkind,format_type(nullif(t.typbasetype, 0), t.typtypmod) as base_type_name, d.description
+	FROM pg_catalog.pg_type t
+	LEFT OUTER JOIN pg_catalog.pg_type et ON et.oid=t.typelem 
+	LEFT OUTER JOIN pg_catalog.pg_class c ON c.oid=t.typrelid
+	LEFT OUTER JOIN pg_catalog.pg_description d ON t.oid=d.objoid
+	WHERE t.typname IS NOT NULL
+	AND (c.relkind IS NULL OR c.relkind = 'c') AND (et.typcategory IS NULL OR et.typcategory <> 'C')
+2022-04-04 11:41:13.389 UTC [36] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:41:13.393 UTC [36] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:41:13.397 UTC [36] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script.sql>'
+2022-04-04 11:41:13.402 UTC [36] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:41:13.406 UTC [36] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:41:13.411 UTC [36] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 11:41:18.681 UTC [35] LOG:  execute <unnamed>: SELECT c.oid,c.*,d.description,pg_catalog.pg_get_expr(c.relpartbound, c.oid) as partition_expr,  pg_catalog.pg_get_partkeydef(c.oid) as partition_key 
+	FROM pg_catalog.pg_class c
+	LEFT OUTER JOIN pg_catalog.pg_description d ON d.objoid=c.oid AND d.objsubid=0 AND d.classoid='pg_class'::regclass
+	WHERE c.relnamespace=$1 AND c.relkind not in ('i','I','c')
+2022-04-04 11:41:18.681 UTC [35] DETAIL:  parameters: $1 = '2200'
+2022-04-04 11:41:18.764 UTC [35] LOG:  execute <unnamed>: select c.oid,pg_catalog.pg_total_relation_size(c.oid) as total_rel_size,pg_catalog.pg_relation_size(c.oid) as rel_size
+	FROM pg_class c
+	WHERE c.relnamespace=$1
+2022-04-04 11:41:18.764 UTC [35] DETAIL:  parameters: $1 = '2200'
+2022-04-04 11:41:28.777 UTC [38] LOG:  execute <unnamed>: SET extra_float_digits = 3
+2022-04-04 11:41:28.782 UTC [38] LOG:  execute <unnamed>: SET application_name = 'PostgreSQL JDBC Driver'
+2022-04-04 11:41:28.800 UTC [38] LOG:  execute <unnamed>: SET application_name = 'DBeaver 22.0.2 - SQLEditor <Script-1.sql>'
+2022-04-04 11:41:28.831 UTC [38] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:41:28.837 UTC [38] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:41:28.843 UTC [38] LOG:  execute <unnamed>: SET search_path = public,public,"$user"
+2022-04-04 11:41:28.947 UTC [38] LOG:  execute <unnamed>: SHOW TRANSACTION ISOLATION LEVEL
+2022-04-04 11:41:31.035 UTC [38] LOG:  execute <unnamed>: insert into users (firstname, lastname, email, password) values
+	('DOE', 'John', 'john.doe@les-enovateurs.com', 'azerty'),
+	('DOE', 'Louise', 'louise.doe@email.com', 'uiopq'),
+	('DOE', 'Sebastien', 'sebastien.doe@gmail.com', 'qsdf'),
+	('DOE', 'Camille', 'camille.doe@yahoo.fr', 'ghjk'),
+	('DOE', 'Damien', 'damien.doe@caramail.fr', 'lmwxcv')
+2022-04-04 11:41:31.169 UTC [38] LOG:  execute <unnamed>: SELECT current_schema(),session_user
+2022-04-04 11:41:31.187 UTC [38] LOG:  execute <unnamed>: SHOW search_path
+2022-04-04 11:53:25.763 UTC [62] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-04-04 11:53:55.901 UTC [63] WARNING:  could not open statistics file "pg_stat_tmp/global.stat": Operation not permitted
+2022-04-04 12:04:11.401 UTC [1] LOG:  received smart shutdown request
+2022-04-04 12:04:11.411 UTC [1] LOG:  worker process: logical replication launcher (PID 25) exited with exit code 1
+2022-04-04 12:04:21.397 UTC [38] FATAL:  terminating connection due to unexpected postmaster exit

@@ -1,0 +1,1 @@
+/usr/local/bin/postgres "-c" "logging_collector=on" "-c" "log_destination=stderr" "-c" "log_statement=all"
